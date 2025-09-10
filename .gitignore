@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Docker and environment
+.env
+*.env
+docker-compose.override.yml
+
+# VS Code settings
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Logs and coverage
+*.log
+*.out
+coverage/
+*.coverage
+.cache
+*.pid
+
+# Pytest
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Test results
+htmlcov/
+
+# OS junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# GitHub-generated files
+README_SCREENSHOTS/
+
+# Typora image assets
+!README.assets/
+*.assets/
+

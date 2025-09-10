@@ -13,6 +13,7 @@ This project implements a real-time fraud detection pipeline using **Apache Kafk
 
 ## 🗂️ Project Structure
 
+```
 kafka-mini-project/
 ├── docker-compose.yml
 ├── docker-compose.kafka.yml
@@ -31,6 +32,7 @@ kafka-mini-project/
     ├── generator-output.png
     ├── detector-output.png
     └── kafka-topic-output.png
+```
 
 ---
 

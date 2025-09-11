@@ -1,86 +1,114 @@
-# Kafka Mini Project – Streaming Fraud Detection System
+# Kafka Mini Project
 
-This project implements a real-time fraud detection pipeline using **Apache Kafka** and **Python**. It is part of the Springboard Data Engineering Bootcamp.
+This project implements a real-time fraud detection pipeline using **Apache Kafka** and **Python**. It simulates transaction data, processes it through a fraud detection logic, and routes legitimate and suspicious transactions to separate Kafka topics.
 
-## 🧰 Stack
+This README documents the successful completion of a Kafka-based mini project that meets all functional requirements, including real-time data simulation, processing, and classification.
 
-- Apache Kafka (via Docker)
-- Python (`kafka-python`)
-- Docker Compose
-- Typora for documentation/screenshots
+## Overview
 
----
+- **Kafka Broker & Zookeeper**: Message streaming backbone.
+- **Generator**: Produces simulated transaction data at a fixed rate.
+- **Detector**: Consumes transactions and applies fraud detection rules.
+- **Topics**:
+  - `queueing.transactions`: Input topic for raw transactions
+  - `streaming.transactions.legit`: For legitimate transactions
+  - `streaming.transactions.fraud`: For flagged transactions
 
-## 🗂️ Project Structure
+## How to Run
 
-```
-kafka-mini-project/
-├── docker-compose.yml
-├── docker-compose.kafka.yml
-├── generator/
-│   ├── Dockerfile
-│   ├── app.py
-│   ├── requirements.txt
-│   └── transactions.py
-├── detector/
-│   ├── Dockerfile
-│   ├── app.py
-│   ├── requirements.txt
-├── .gitignore
-├── README.md
-└── README.assets/
-    ├── generator-output.png
-    ├── detector-output.png
-    └── kafka-topic-output.png
+### Step 1: Clean and Build
+
+```powershell
+# Optional: remove old volumes/data
+rm -rf kafka-data zookeeper-data
+
+# Build all services from scratch
+docker compose build --no-cache
 ```
 
----
+### Step 2: Start All Services
 
-## ⚙️ How to Run
+```powershell
+docker compose up
+```
 
-1) Create Docker network:
+This will:
+
+- Start Zookeeper and Kafka broker
+- Launch the generator and detector
+
+## Demonstration of Functionality
+
+### ✅ All Services Running
+
+The generator container produces transaction messages to the `queueing.transactions` Kafka topic.
+
+#### Screenshot: Docker containers running successfully
+
+![Docker_Running](assets/Docker_Running.png)
+
+#### Screenshot: Generator and Detector Console Output
+
+![Generator_Detector_Output](assets/Generator_Detector_Output.png)
+
+Transactions over $900 are classified as fraudulent and sent to the `streaming.transactions.fraud` topic. All others are considered legitimate and sent to `streaming.transactions.legit`.
+
+This command shows legitimate transactions from Kafka:
+
+```powershell
+docker exec -it kafka-mini-project-broker-1 kafka-console-consumer \
+  --bootstrap-server broker:9092 \
+  --topic streaming.transactions.legit \
+  --from-beginning
+```
+
+#### Screenshot: Legitimate Transactions from Kafka Topic
+
+![Legit_Transactions](assets/Legit_Transactions.png)
+
+This Docker commands provides us our "fraud" transactions:
+
+```powershell
+docker exec -it kafka-mini-project-broker-1 kafka-console-consumer \
+  --bootstrap-server broker:9092 \
+  --topic streaming.transactions.fraud \
+  --from-beginning
+```
+
+#### Screenshot: Fraudulent Transactions from Kafka Topic
+
+![Fraud_Transactions](assets/Fraud_Transactions.png)
+
+## Kafka Topics
+
+You can use these command to inspect messages:
+
+### Fraud
 
 ```bash
-docker network create kafka-network
+docker exec -it kafka-mini-project-broker-1 kafka-console-consumer \
+  --bootstrap-server broker:9092 \
+  --topic streaming.transactions.fraud \
+  --from-beginning
 ```
 
-2) Start Kafka services:
+### Legit
 
-```bash
-docker-compose -f docker-compose.kafka.yml up
+```
+docker exec -it kafka-mini-project-broker-1 kafka-console-consumer \
+  --bootstrap-server broker:9092 \
+  --topic streaming.transactions.legit \
+  --from-beginning
 ```
 
-3. Run the generator and detector:
+## Troubleshooting Notes
 
-```bash
-docker-compose up
-```
+- `depends_on.condition: service_healthy` used for reliable container startup
+- Health checks for Zookeeper and Kafka are critical to avoid startup races
+- Rebuild images with `--no-cache` to ensure updates are applied
+- Use `docker compose down -v` to remove all state if cluster ID issues arise
 
-## 📷 Screenshots
+## Notes
 
-Below are screenshots showing the system in action:
-
-### ✅ Generator Producing Transactions
-
-### 🔍 Detector Flagging Fraudulent Transactions
-
-### 🧪 Kafka Console Output
-
-## 🧠 Learnings
-
-- Running Kafka locally via Docker
-- Writing Kafka producers and consumers in Python
-
-- Simulating real-time data with infinite loops
-
-- Handling multiple topics and branching logic
-
-
-## 🧳 Deliverables
-
--  All source code and Docker files
--  Screenshot evidence in README.assets/
-
--  Working end-to-end pipeline
-
--  Repo hosted on GitHub
+- No volumes are required for functionality; logs were intended for optional performance analysis
+- Screenshots were captured after services were verified working

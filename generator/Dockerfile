@@ -1,19 +1,11 @@
-FROM python:3.6
+# generator/Dockerfile or detector/Dockerfile
+FROM python:3.11-slim
 
-# Install netcat (nc)
-RUN apt-get update && apt-get install -y netcat
+WORKDIR /app
 
-WORKDIR /usr/app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-ADD ./requirements.txt ./
-RUN pip install -r requirements.txt
+COPY . .
 
-ADD ./ ./
-
-# Add wait-for.sh script
-COPY wait-for.sh .
-RUN chmod +x wait-for.sh
-
-# Use wait-for.sh as entrypoint
-ENTRYPOINT ["./wait-for.sh"]
 CMD ["python", "app.py"]

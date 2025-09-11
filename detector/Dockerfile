@@ -1,16 +1,11 @@
-FROM python:3.6
+# detector/Dockerfile or detector/Dockerfile
+FROM python:3.11-slim
 
-WORKDIR /usr/app
+WORKDIR /app
 
-ADD ./requirements.txt ./
-RUN pip install -r requirements.txt
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-ADD . ./
-
-COPY wait-for.sh .
-RUN chmod +x wait-for.sh
-CMD ["./wait-for.sh", "broker:9092", "--", "python", "app.py"]
-
-RUN ls -la /usr/app
+COPY . .
 
 CMD ["python", "app.py"]

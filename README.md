@@ -2,20 +2,20 @@
 
 
 ## 📖 Abstract
-This project implements a real-time fraud detection pipeline using Apache Kafka and Python. The system simulates financial transactions, streams them through Kafka, and applies rule-based filtering to flag suspicious activity. The goal is to gain practical experience with streaming architectures, producers, consumers, and containerized deployments.
-
-The workflow includes:
-
-* Running a local Kafka cluster using Docker Compose with broker and Zookeeper services.
-
-* Building a transaction generator that continuously produces randomized account transfers into a Kafka topic.
-
-* Creating a fraud detector application that consumes transactions, evaluates them against business rules, and branches outputs into "legit" or "fraud" topics.
-
-* Packaging all components with Dockerfiles, requirements.txt, and docker-compose.yml for reproducibility.
-
-* Verifying results by consuming messages from output topics, confirming that transactions over $900 are correctly flagged as fraudulent.
-
+This project implements a real-time fraud detection pipeline using Apache Kafka and Python. The system simulates financial transactions, streams them through Kafka, and applies rule-based filtering to flag suspicious activity. The goal is to gain practical experience with streaming architectures, producers, consumers, and containerized deployments.
+
+The workflow includes:
+
+* Running a local Kafka cluster using Docker Compose with broker and Zookeeper services.
+
+* Building a transaction generator that continuously produces randomized account transfers into a Kafka topic.
+
+* Creating a fraud detector application that consumes transactions, evaluates them against business rules, and branches outputs into "legit" or "fraud" topics.
+
+* Packaging all components with Dockerfiles, requirements.txt, and docker-compose.yml for reproducibility.
+
+* Verifying results by consuming messages from output topics, confirming that transactions over $900 are correctly flagged as fraudulent.
+
 Through this project, I gained hands-on skills in stream processing, Kafka topic design, producer/consumer APIs, and containerized workflow orchestration, while also exploring real-world challenges in fraud detection systems.
 
 
@@ -123,4 +123,4 @@ Screenshot of consumer receiving messages
 
 
 
-*Generated automatically via Python + Jinja2 + SQL Server table `tblMiniProjectProgress` on 09-15-2025 00:58:06*
+*Generated automatically via Python + Jinja2 + SQL Server table `tblMiniProjectProgress` on 09-15-2025 18:04:11*

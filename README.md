@@ -71,14 +71,17 @@ Through this project, I gained hands-on skills in stream processing, Kafka topic
 
 ## 📸 Evidence
 
-![kafka_topics.png](./evidence/kafka_topics.png)  
-Screenshot of Kafka topics list
+![01_docker_running.png](./evidence/01_docker_running.png)  
+Screenshot of Dockerized Kafka running
 
-![producer_output.png](./evidence/producer_output.png)  
-Screenshot of producer sending messages
+![02_code_being_executed.png](./evidence/02_code_being_executed.png)  
+Screenshot of code execution
 
-![consumer_output.png](./evidence/consumer_output.png)  
-Screenshot of consumer receiving messages
+![03_legit_transactions.png](./evidence/03_legit_transactions.png)  
+Screenshot of legitimate transactions
+
+![04_fraudulent_transactions.png](./evidence/04_fraudulent_transactions.png)  
+Screenshot of fraudulent transactions
 
 
 
@@ -87,11 +90,9 @@ Screenshot of consumer receiving messages
 
 - [`- docker-compose.yml`](./deliverables/- docker-compose.yml)
 
-- [`- requirements.txt`](./deliverables/- requirements.txt)
+- [`- requirements.txt per fraud-detection component`](./deliverables/- requirements.txt per fraud-detection component)
 
 - [`- Python producer and consumer scripts`](./deliverables/- Python producer and consumer scripts)
-
-- [`- Raw container log: deliverables/log_kafka.txt`](./deliverables/- Raw container log: deliverables/log_kafka.txt)
 
 - [`- README with instructions`](./deliverables/- README with instructions)
 
@@ -122,5 +123,4 @@ Screenshot of consumer receiving messages
 - Delete external Docker network if created manually
 
 
-
-*Generated automatically via Python + Jinja2 + SQL Server table `tblMiniProjectProgress` on 09-15-2025 19:27:04*
+*Generated automatically via Python + Jinja2 + SQL Server table `tblMiniProjectProgress` on 09-15-2025 21:26:31*

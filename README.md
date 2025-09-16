@@ -98,8 +98,6 @@ Screenshot of fraudulent transactions
 
 - [`- generator_app.py`](./deliverables/- generator_app.py)
 
-- [`- README.md with instructions`](./deliverables/- README.md with instructions)
-
 
 
 
@@ -127,4 +125,4 @@ Screenshot of fraudulent transactions
 - Delete external Docker network if created manually
 
 
-*Generated automatically via Python + Jinja2 + SQL Server table `tblMiniProjectProgress` on 09-16-2025 11:44:12*
+*Generated automatically via Python + Jinja2 + SQL Server table `tblMiniProjectProgress` on 09-16-2025 11:51:16*

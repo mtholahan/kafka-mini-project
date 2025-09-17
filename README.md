@@ -88,15 +88,15 @@ Screenshot of fraudulent transactions
 
 ## 📎 Deliverables
 
-- [`- docker-compose.yml`](./deliverables/- docker-compose.yml)
+- [`docker-compose.yml`](./deliverables/docker-compose.yml)
 
-- [`- detector_requirements.txt`](./deliverables/- detector_requirements.txt)
+- [`detector_requirements.txt`](./deliverables/detector_requirements.txt)
 
-- [`- detector_app.py`](./deliverables/- detector_app.py)
+- [`detector_app.py`](./deliverables/detector_app.py)
 
-- [`- generator_requirements.txt`](./deliverables/- generator_requirements.txt)
+- [`generator_requirements.txt`](./deliverables/generator_requirements.txt)
 
-- [`- generator_app.py`](./deliverables/- generator_app.py)
+- [`generator_app.py`](./deliverables/generator_app.py)
 
 
 
@@ -125,4 +125,4 @@ Screenshot of fraudulent transactions
 - Delete external Docker network if created manually
 
 
-*Generated automatically via Python + Jinja2 + SQL Server table `tblMiniProjectProgress` on 09-16-2025 11:51:16*
+*Generated automatically via Python + Jinja2 + SQL Server table `tblMiniProjectProgress` on 09-17-2025 15:18:52*
